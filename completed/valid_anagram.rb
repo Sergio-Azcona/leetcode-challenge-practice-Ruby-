@@ -5,7 +5,7 @@
 
 
 class ValidAnagram
-  def self.is_anagram(s, t)
+  # def self.is_anagram(s, t)
       # Runtime 159 ms (38.35%)
       # Memory 218 MB (19.89%)
     # require 'pry';binding.pry
@@ -16,6 +16,9 @@ class ValidAnagram
     s.bytes.sort ==  t.bytes.sort #compares values of letters [97, 97, 97, 103, 109, 110, 114]
 
     #what if you created a hash with the bytes as the keys and count as values
+  # end
+
+  def self.is_anagram(s, t)
   end
 end
 
