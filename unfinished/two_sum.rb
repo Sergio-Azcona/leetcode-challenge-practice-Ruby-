@@ -116,27 +116,52 @@ class TwoSum
   # end
 
   def self.two_sum(nums, target)
-
+    # Runtime 92 ms Beats 56.35%
+    # Memory 212.5 MB Beats 10.70%
+    
     #if there are only two elements in nums, return the index position
     #only 1 solution in nums (don't care about dublicates)
 
     #hash with number => indiex
+    ## hash power is ability to quickly look up info
     #if key_1 + key_2 = target, return value_1 and value_2
 
-    if nums.length == 2
-    require 'pry';binding.pry
+    #do math calculation first; look for a specific goal by subtracting the target from an instance
+
+    nums_hash = Hash.new 
+  
+    #create hash with any number (k) and index(v)
+    nums.each_with_index do |n, i|
+      # if target >= n #gotta store neg numbers in case we're looking for a neg number
+        nums_hash[n] = i
+      # end
     end
+
+    nums.each_with_index do |n, i| 
+      # if target >= n 
+      goal = target - n
+      require 'pry';binding.pry
+        if nums_hash.key?(goal)  && nums_hash[goal] != i
+          stored_num = nums_hash[goal] 
+          return [i, stored_num]
+        end
+      end
+    # end
   
   end
 end
 
 
-test1 = TwoSum.two_sum([3,2,4], 6) # [1,2]
-test2 = TwoSum.two_sum([2,7,11,15],9) # [0,1]
-test3 = TwoSum.two_sum([3,3], 6) # [0,1]
-test4 = TwoSum.two_sum([0,3,5,3,9,5], 10) # [2,5]
-test5 = TwoSum.two_sum([3,2,3], 6) # [0,2]
-test6 = TwoSum.two_sum([8,3,2,2,4,0,5],7) # [1,4]
+# test1 = TwoSum.two_sum([55,3,2,4,5,7,11], 6) # [2,3]
+# test2 = TwoSum.two_sum([2,7,11,15],9) # [0,1]
+# test3 = TwoSum.two_sum([3,3], 6) # [0,1]
+# test4 = TwoSum.two_sum([0,3,5,3,9,11,5,4], 10) # [2,6]
+# test5 = TwoSum.two_sum([3,2,3], 6) # [0,2]
+# test6 = TwoSum.two_sum([8,3,2,2,4,0,5],7) # [1,4]
+# test7 = TwoSum.two_sum([8,11,2,2,4,50,5],61) # [1,5]
+# test8 = TwoSum.two_sum([8,-11,12,2,4,50,5],12) # [0,4]
+# test9 = TwoSum.two_sum([-3,4,3,90], 0) #[0,2]
+test10 = TwoSum.two_sum([-3,-4,-3,-9],-7) #[0,1]
 
 require 'pry';binding.pry
 
