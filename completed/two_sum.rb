@@ -140,7 +140,7 @@ class TwoSum
     nums.each_with_index do |n, i| 
       # if target >= n 
       goal = target - n
-      require 'pry';binding.pry
+      # require 'pry';binding.pry
         if nums_hash.key?(goal)  && nums_hash[goal] != i
           stored_num = nums_hash[goal] 
           return [i, stored_num]
@@ -152,15 +152,15 @@ class TwoSum
 end
 
 
-# test1 = TwoSum.two_sum([55,3,2,4,5,7,11], 6) # [2,3]
-# test2 = TwoSum.two_sum([2,7,11,15],9) # [0,1]
-# test3 = TwoSum.two_sum([3,3], 6) # [0,1]
-# test4 = TwoSum.two_sum([0,3,5,3,9,11,5,4], 10) # [2,6]
-# test5 = TwoSum.two_sum([3,2,3], 6) # [0,2]
-# test6 = TwoSum.two_sum([8,3,2,2,4,0,5],7) # [1,4]
-# test7 = TwoSum.two_sum([8,11,2,2,4,50,5],61) # [1,5]
-# test8 = TwoSum.two_sum([8,-11,12,2,4,50,5],12) # [0,4]
-# test9 = TwoSum.two_sum([-3,4,3,90], 0) #[0,2]
+test1 = TwoSum.two_sum([55,3,2,4,5,7,11], 6) # [2,3]
+test2 = TwoSum.two_sum([2,7,11,15],9) # [0,1]
+test3 = TwoSum.two_sum([3,3], 6) # [0,1]
+test4 = TwoSum.two_sum([0,3,5,3,9,11,5,4], 10) # [2,6]
+test5 = TwoSum.two_sum([3,2,3], 6) # [0,2]
+test6 = TwoSum.two_sum([8,3,2,2,4,0,5],7) # [1,4]
+test7 = TwoSum.two_sum([8,11,2,2,4,50,5],61) # [1,5]
+test8 = TwoSum.two_sum([8,-11,12,2,4,50,5],12) # [0,4]
+test9 = TwoSum.two_sum([-3,4,3,90], 0) #[0,2]
 test10 = TwoSum.two_sum([-3,-4,-3,-9],-7) #[0,1]
 
 require 'pry';binding.pry
