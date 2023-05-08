@@ -18,7 +18,6 @@ class GroupAnagrams
     #bytes to convert letters to integers
     #sort in sequance for easier comparing
     hash_words = Hash.new(Array.new)
-    
     # require 'pry';binding.pry
     strs.each { |word| hash_words[word.bytes.sort] += [word] }
     hash_words.values
