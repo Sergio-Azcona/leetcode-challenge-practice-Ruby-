@@ -160,7 +160,7 @@ test5 = TwoSum.two_sum([3,2,3], 6) # [0,2]
 test6 = TwoSum.two_sum([8,3,2,2,4,0,5],7) # [1,4]
 test7 = TwoSum.two_sum([8,11,2,2,4,50,5],61) # [1,5]
 test8 = TwoSum.two_sum([8,-11,12,2,4,50,5],12) # [0,4]
-test9 = TwoSum.two_sum([-3,4,3,90], 0) #[0,2]
+test9 = TwoSum.two_sum([-3,4,3,90], 0) #[0,2] 
 test10 = TwoSum.two_sum([-3,-4,-3,-9],-7) #[0,1]
 
 require 'pry';binding.pry

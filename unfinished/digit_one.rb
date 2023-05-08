@@ -64,6 +64,6 @@ end
  t3 = DigitOne.num_appearing(212) #145
 #  t4 = DigitOne.num_appearing(7011510) # 2510928
 #  t5 = DigitOne.num_appearing(-7011510) #0
-#  t6 = DigitOne.num_appearing(824883294) #295064856
+ t6 = DigitOne.num_appearing(824883294) #295064856
 
  require 'pry';binding.pry
