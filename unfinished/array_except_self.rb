@@ -19,20 +19,6 @@ class ArrayExceptSelf
     # product_array
 
 
-    product_array = []
-    product = 1
-    nums.each { |num| product *= num }
-    nums.each do |num| 
-      unless num != 0
-        next
-      else
-        product_array << product / num 
-      end
-    end
-    product_array
-
-  end
-
   # def self.product_except_self(nums)
   #   product_array = Hash.new
       
