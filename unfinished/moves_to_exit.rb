@@ -55,7 +55,7 @@ class MovesToExit
   def self.num_moves(data)
     index = 0
     count = 0
-    # num = 0
+
     data_length = data.length
 
     while data_length > index 
