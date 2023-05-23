@@ -36,39 +36,39 @@ class ValidParentheses
     open_brackets.empty?
   end
 
-  # def self.is_valid(data) #slow and uses lots of memory 
-  #   # Runtime 94 ms Beats 27.2%
-  #   # Memory 211.1 MB Beats 37.22%
+  def self.is_valid(data) #slow and uses lots of memory 
+    # Runtime 94 ms Beats 27.2%
+    # Memory 211.1 MB Beats 37.22%
 
-  #   open_brackets = Array.new
+    open_brackets = Array.new
 
-  #   return false if  data.length.odd?
-  #   #char the input to break data/input array up
-  #   data.chars.each do |b|
-  #     if  bracket_combo.key?(b)
-  #       #add b if it is a key found in our dictionary 
-  #       open_brackets.push(b)
-  #     elsif
-  #       # if b a value in our dictionary  & if the key corresponding to b is last element in the array 
-  #       bracket_combo.value?(b)
+    return false if  data.length.odd?
+    #char the input to break data/input array up
+    data.chars.each do |b|
+      if  bracket_combo.key?(b)
+        #add b if it is a key found in our dictionary 
+        open_brackets.push(b)
+      elsif
+        # if b a value in our dictionary  & if the key corresponding to b is last element in the array 
+        bracket_combo.value?(b)
 
-  #       if open_brackets[-1].eql?(bracket_combo.key(b))
-  #       # delete the key related to b from the array container (should be the last in the container)
-  #         open_brackets.pop 
-  #       else
-  #         return false
-  #       end
+        if open_brackets[-1].eql?(bracket_combo.key(b))
+        # delete the key related to b from the array container (should be the last in the container)
+          open_brackets.pop 
+        else
+          return false
+        end
         
-  #     end
-  #     open_brackets
-  #   end
-  #   # require 'pry';binding.pry
-  #   if open_brackets.empty?
-  #     return true
-  #   else
-  #     return false
-  #   end
-  # end
+      end
+      open_brackets
+    end
+    # require 'pry';binding.pry
+    if open_brackets.empty?
+      return true
+    else
+      return false
+    end
+  end
 
   def self.bracket_combo
     {
