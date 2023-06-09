@@ -11,9 +11,11 @@
 
 class TwoSumII
   def self.two_sum(numbers, target)
+    # Runtime 97 ms Beats 51.43%
+    # Memory 212.1 MB Beats 41.43%
+
     li = 0
     rindex = -1
-    correct_index = Array.new
     
     loop do 
       if numbers[rindex] + numbers[li] == target
