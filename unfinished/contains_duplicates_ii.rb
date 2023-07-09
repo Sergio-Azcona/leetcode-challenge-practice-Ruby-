@@ -16,8 +16,12 @@ class ContainsDuplicateII
     # { numbers  => [indexes] }
     nums.each_with_index do |number, index|
       if num_hash.key?(number)
-        require 'pry';binding.pry
-        return true if index - num_hash[number].last <= k 
+        # require 'pry';binding.pry
+        if index - num_hash[number].last <= k 
+          return true
+        else
+          num_hash[number] += [index]
+        end
       else
         num_hash[number] += [index]
       end
