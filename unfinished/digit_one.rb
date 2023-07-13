@@ -26,44 +26,67 @@
 
   # end
 
-  def self.num_appearing(n) #
-  #   # find number 1 in all nums <= n
-  #   # only consider positive n
+  # def self.num_appearing(n) #
+  # #   # find number 1 in all nums <= n
+  # #   # only consider positive n
     
-  #   return 0 if n < 1
+  # #   return 0 if n < 1
     
-    ones = 0
-    num = 0
-  #   # n - 1 = new_number (until n = 1)
+  #   ones = 0
+  #   num = 0
+  # #   # n - 1 = new_number (until n = 1)
 
-    while num < n
-      new_num =  num + 1 
-      x = new_num.digits
-      ones += x.count(1)
-      num = new_num 
-    end
-    ones 
-  #   # require 'pry';binding.pry
+  #   while num < n
+  #     new_num =  num + 1 
+  #     x = new_num.digits
+  #     ones += x.count(1)
+  #     num = new_num 
+  #   end
+  #   ones 
+  # #   # require 'pry';binding.pry
 
     
-  #   # break up ever number into individual elements ## ..12 -> [1,2], 13 -> [1,3]...n
-  #   # ones = []
-  #   # n_string = all_num.to_s
-  #   # n_string.chars.each do |number|
-  #   #   ones.push(number) if number == "1"
-  #   # end
-  #   # ones.count
-  #   # require 'pry';binding.pry
+  # #   # break up ever number into individual elements ## ..12 -> [1,2], 13 -> [1,3]...n
+  # #   # ones = []
+  # #   # n_string = all_num.to_s
+  # #   # n_string.chars.each do |number|
+  # #   #   ones.push(number) if number == "1"
+  # #   # end
+  # #   # ones.count
+  # #   # require 'pry';binding.pry
   
-  end
+  # end
 
+
+  def self.num_appearing(n)
+    # require 'pry';binding.pry
+    return 0 if n <= 0
+    counter = 0 #counter keep resetting to 0
+    if n == 1
+      return 1
+    elsif n >= 10
+
+      # (10..n).digits.each do |x|
+        (10..n).each do |num| 
+          if num.digits.include?(1)
+            num.digits.each do |one|
+              # require 'pry';binding.pry
+                counter += 1 if one == 1
+            end
+          end
+        end
+      return counter + 1
+    else
+    return 0
+    end
+  end
 end  
 
  t1 = DigitOne.num_appearing(13)  #6 = # 1, 10, 11, 12, 13 
  t2 = DigitOne.num_appearing(0) #0
  t3 = DigitOne.num_appearing(212) #145
 #  t4 = DigitOne.num_appearing(7011510) # 2510928
-#  t5 = DigitOne.num_appearing(-7011510) #0
- t6 = DigitOne.num_appearing(824883294) #295064856
+ t5 = DigitOne.num_appearing(-7011510) #0
+#  t6 = DigitOne.num_appearing(824883294) #295064856
 
  require 'pry';binding.pry
