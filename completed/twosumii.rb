@@ -21,10 +21,10 @@ class TwoSumII
       if numbers[rindex] + numbers[li] == target
         return [(li+1),(numbers.count + (rindex+1))]
       elsif 
-        target > numbers[rindex] + numbers[li]
+        target > numbers[li] + numbers[rindex]
         li += 1
       elsif
-        target < numbers[rindex] + numbers[li]
+        target < numbers[li] + numbers[rindex]
         rindex -= 1
       end
     end
