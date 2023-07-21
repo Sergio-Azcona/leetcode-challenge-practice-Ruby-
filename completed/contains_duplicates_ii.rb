@@ -5,28 +5,32 @@
 # nums[i] == nums[j] and abs(i - j) <= k.
 
 class ContainsDuplicateII
-  def self.contains_nearby_duplicate(nums, k)
-    # require 'pry';binding.pry
-    # return false if nums.length < 2
+  
+  def self.contains_nearby_duplicate(nums, k) #SLOW, GOOD ON MEMORY
+    # Runtime 271 ms Beats 5.77%
+    # Memory 224 MB Beats 88.46%
 
     num_hash = Hash.new { |h, k| h[k] = [] }
-    # index_sum = Array.new
-    
-    # if number appears multiple times in nums
-    # { numbers  => [indexes] }
+
     nums.each_with_index do |number, index|
+      #first instance of num it will skip to else clause
+      
+      #second time num if found
       if num_hash.key?(number)
-        # require 'pry';binding.pry
+        # compare sum of current index against the last value in the hash; compare sum to k
         if index - num_hash[number].last <= k 
           return true
         else
+          #if sum does NOT meet true requirment, add index to hash value collection
           num_hash[number] += [index]
         end
       else
+        # create hash with each num as key and their first index as value  #{ numbers  => [indexes] }
         num_hash[number] += [index]
       end
     end
-  
+    
+    #after going through entire nums, return false if L22 was never met
     return false
 
     #subtract the index position # from each other = result
@@ -45,11 +49,11 @@ class ContainsDuplicateII
   end
 end
 
-# t1 = ContainsDuplicateII.contains_nearby_duplicate([1,2,3,1], 3) #true
-# t2 = ContainsDuplicateII.contains_nearby_duplicate([1,0,1,1], 1) #true 
-# t3 = ContainsDuplicateII.contains_nearby_duplicate([1,2,3,1,2,3], 2) #false
-# t4 = ContainsDuplicateII.contains_nearby_duplicate([1], 1)  #false
-# t5 = ContainsDuplicateII.contains_nearby_duplicate([-1,-1], 1) #true
-# t6 = ContainsDuplicateII.contains_nearby_duplicate([1,2], 2) #false
+t1 = ContainsDuplicateII.contains_nearby_duplicate([1,2,3,1], 3) #true
+t2 = ContainsDuplicateII.contains_nearby_duplicate([1,0,1,1], 1) #true 
+t3 = ContainsDuplicateII.contains_nearby_duplicate([1,2,3,1,2,3], 2) #false
+t4 = ContainsDuplicateII.contains_nearby_duplicate([1], 1)  #false
+t5 = ContainsDuplicateII.contains_nearby_duplicate([-1,-1], 1) #true
+t6 = ContainsDuplicateII.contains_nearby_duplicate([1,2], 2) #false
 t7 = ContainsDuplicateII.contains_nearby_duplicate([0,1,2,3,4,0,0,7,8,9,10,11,12,0], 1) #true
 require 'pry';binding.pry
