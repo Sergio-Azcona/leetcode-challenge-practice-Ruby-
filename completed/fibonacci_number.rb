@@ -12,23 +12,35 @@
 
 
 class FibonacciNumber
+  # def self.fib(n)
+  #   # Runtime 254ms Beats 37.23%
+  #   # Memory 210.93mb Beats 79.79%
+  #   return n if n <= 1
+  #   (fib(n - 1) + fib(n - 2))
+  # end
+
   def self.fib(n)
-    # Runtime 254ms Beats 37.23%
-    # Memory 210.93mb Beats 79.79%
+  #   # Runtime 66ms Beats 96%
+  #   # Memory 210.95mb Beats 80%
     return n if n <= 1
-    (fib(n - 1) + fib(n - 2))
+
+    fib_collection = [0,1]
+    
+    (2..n).each do |number|
+      fib_collection[number] = fib_collection[minus_one(number)] + fib_collection[minus_two(number)]
+      # define each number in the collection by the calculation
+      # calculation: add values found within the array and not the numbers themselves
+    end
+    fib_collection[n]
   end
 
-  # def self.fib(n)
-  # end
+  def self.minus_one(number)
+    number - 1
+  end
 
-  # def self.minus_one(number)
-  #   number - 1
-  # end
-
-  # def self.minus_two(number)
-  #   number - 2
-  # end
+  def self.minus_two(number)
+    number - 2
+  end
 end
 
 t1 = FibonacciNumber.fib(2) # 1
