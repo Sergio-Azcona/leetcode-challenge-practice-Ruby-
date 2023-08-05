@@ -60,18 +60,30 @@ class ContainsDuplicate
     # end
   # end
 
-  def self.duplicates?(nums) 
-    collection_hash = Hash.new(0)
-    nums.each do |number|
-      if collection_hash.has_key?(number)
-        return true
-      else      
-      collection_hash[number] += 1
-      end
-    end
-    return false
-  end
+  # def self.duplicates?(nums) 
+  #   collection_hash = Hash.new(0)
+  #   nums.each do |number|
+  #     if collection_hash.has_key?(number)
+  #       return true
+  #     else      
+  #     collection_hash[number] += 1
+  #     end
+  #   end
+  #   return false
+  # end
 
+  def self.duplicates?(nums) 
+    nums.sort!
+
+    if nums[0] == nums[1]
+      return true
+    elsif nums.count <= 2
+      return false
+    elsif nums.count > 2
+      nums.shift
+      duplicates?(nums) 
+    end
+  end
 end
 
 t1 = ContainsDuplicate.duplicates?([0]) #false
@@ -80,4 +92,5 @@ t3 = ContainsDuplicate.duplicates?([54321,321,21,1,2]) #false
 t4 = ContainsDuplicate.duplicates?([1,2,3,1]) #true
 t5 = ContainsDuplicate.duplicates?([1,1,1,3,3,4,3,2,4,2]) #true
 t6 = ContainsDuplicate.duplicates?([54,7,22,5,1,2,13,11,17]) #false
+t7 = ContainsDuplicate.duplicates?([54,7,22,202,17,5,1,2,13,11,17]) #true
 require 'pry';binding.pry
