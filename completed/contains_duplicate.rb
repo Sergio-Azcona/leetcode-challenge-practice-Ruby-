@@ -60,29 +60,32 @@ class ContainsDuplicate
     # end
   # end
 
-  # def self.duplicates?(nums) 
-  #   collection_hash = Hash.new(0)
-  #   nums.each do |number|
-  #     if collection_hash.has_key?(number)
-  #       return true
-  #     else      
-  #     collection_hash[number] += 1
-  #     end
-  #   end
-  #   return false
-  # end
+  def self.duplicates?(nums) #fast but memory intensive
+    # Runtime 115ms Beats 93.23%
+    # Memory 224.82mb Beats 21.02%
 
-  def self.duplicates?(nums) 
-    nums.sort!
-
-    if nums[0] == nums[1]
-      return true
-    elsif nums.count <= 2
-      return false
-    elsif nums.count > 2
-      nums.shift
-      duplicates?(nums) 
+    collection_hash = Hash.new(0)
+    nums.each do |number|
+      if collection_hash.has_key?(number)
+        return true
+      else      
+      collection_hash[number] += 1
+      end
     end
+    return false
+  end
+
+  # def self.duplicates?(nums) #times out at test 65/74
+  #   nums.sort!
+
+  #   if nums[0] == nums[1]
+  #     return true
+  #   elsif nums.count <= 2
+  #     return false
+  #   elsif nums.count > 2
+  #     nums.shift
+  #     duplicates?(nums) 
+  #   end
   end
 end
 
