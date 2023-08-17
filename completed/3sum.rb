@@ -78,4 +78,4 @@ t5 = ThreeSumClass.three_sum([50,-16,101,-51,0,-21,7,1]) # [-51,1,50]
 t6 = ThreeSumClass.three_sum([0,0,0,0]) #[[0,0,0]]
 t7 = ThreeSumClass.three_sum([3,5,3,1,0,-6,-1]) # [[-6,5,1], [-1,0,1], [-6,3,3]]
 t8 = ThreeSumClass.three_sum([3,4,3,-6,-1]) # [-6,3,3]]
-# require 'pry';binding.pry
+require 'pry';binding.pry
