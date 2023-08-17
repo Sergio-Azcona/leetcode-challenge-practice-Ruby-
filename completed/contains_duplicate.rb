@@ -60,20 +60,20 @@ class ContainsDuplicate
     # end
   # end
 
-  def self.duplicates?(nums) #fast but memory intensive
+  # def self.duplicates?(nums) #fast but memory intensive
     # Runtime 115ms Beats 93.23%
     # Memory 224.82mb Beats 21.02%
 
-    collection_hash = Hash.new(0)
-    nums.each do |number|
-      if collection_hash.has_key?(number)
-        return true
-      else      
-      collection_hash[number] += 1
-      end
-    end
-    return false
-  end
+    # collection_hash = Hash.new(0)
+    # nums.each do |number|
+    #   if collection_hash.has_key?(number)
+    #     return true
+    #   else      
+    #   collection_hash[number] += 1
+    #   end
+    # end
+    # return false
+  # end
 
   # def self.duplicates?(nums) #times out at test 65/74
   #   nums.sort!
@@ -86,14 +86,15 @@ class ContainsDuplicate
   #     nums.shift
   #     duplicates?(nums) 
   #   end
-  end
+  # end
 end
 
-t1 = ContainsDuplicate.duplicates?([0]) #false
-t2 = ContainsDuplicate.duplicates?([100,77,21,3,4,24,5,7]) #false
-t3 = ContainsDuplicate.duplicates?([54321,321,21,1,2]) #false
-t4 = ContainsDuplicate.duplicates?([1,2,3,1]) #true
-t5 = ContainsDuplicate.duplicates?([1,1,1,3,3,4,3,2,4,2]) #true
-t6 = ContainsDuplicate.duplicates?([54,7,22,5,1,2,13,11,17]) #false
-t7 = ContainsDuplicate.duplicates?([54,7,22,202,17,5,1,2,13,11,17]) #true
+# t1 = ContainsDuplicate.duplicates?([0]) #false
+# t2 = ContainsDuplicate.duplicates?([100,77,21,3,4,24,5,7]) #false
+# t3 = ContainsDuplicate.duplicates?([54321,321,21,1,2]) #false
+# t4 = ContainsDuplicate.duplicates?([1,2,3,1]) #true
+# t5 = ContainsDuplicate.duplicates?([1,1,1,3,3,4,3,2,4,2]) #true
+# t6 = ContainsDuplicate.duplicates?([54,7,22,5,1,2,13,11,17]) #false
+# t7 = ContainsDuplicate.duplicates?([54,7,22,202,17,5,1,2,13,11,17]) #true
+t8 = ContainsDuplicate.duplicates?([2,4,6,8,10]) #true
 require 'pry';binding.pry
