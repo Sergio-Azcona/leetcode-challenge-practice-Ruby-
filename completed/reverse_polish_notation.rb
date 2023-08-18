@@ -14,8 +14,6 @@
 
 # if value == Integer push into numbers until 
 #   if value != Integer push into operators
-
-
 #     to calculate: 
 #     stack numbers until an operator is hit
 #     when operator is hit, calculate the last two numbers  
@@ -35,9 +33,7 @@ def eval_rpn(tokens) #good on speed; lackluster on memory
       operators.push(operator_dictionary[tokens[index]])
     elsif operator_dictionary.key?(tokens[index]) && numbers.length >= 2
       sum = calulate(numbers[-2], operator_dictionary[tokens[index]], numbers[-1])
-      
       numbers.pop(2)
-
       numbers.push(sum)
     elsif !operator_dictionary.key?(tokens[index])
         numbers.push(Integer(tokens[index]))
@@ -62,7 +58,6 @@ def calulate(first_number, operator, second_number)
     end
   end
 end
-
 
 def operator_dictionary
   {
